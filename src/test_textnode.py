@@ -17,5 +17,10 @@ class TestTextNode(unittest.TestCase):
         node2 = TextNode("This is a text node", TextType.BOLD, url=None)
         self.assertEqual(node, node2)
 
+    def test_url_not_equal(self):
+       node = TextNode("This is a text node", TextType.IMAGES) 
+       node2 = TextNode("This is a text node", TextType.IMAGES, url="points_to_an_image")
+       self.assertNotEqual(node, node2)
+
 if __name__ == "__main__":
     unittest.main()
