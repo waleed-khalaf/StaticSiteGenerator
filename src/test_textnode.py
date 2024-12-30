@@ -7,9 +7,15 @@ class TestTextNode(unittest.TestCase):
         node2 = TextNode("This is a text node", TextType.BOLD)
         self.assertEqual(node, node2)
 
-    # Write at least two more unit tests for TextNode to check implementation is correct
-    # TODO: Test for when url is None
-    # TODO: Test for TextNode Objects are not equal
+    def test_not_eq(self):
+        node = TextNode("This is a text node", TextType.BOLD)
+        node2 = TextNode("This is a text node", TextType.ITALIC)
+        self.assertNotEqual(node, node2)
+
+    def test_url_none(self):
+        node = TextNode("This is a text node", TextType.BOLD)
+        node2 = TextNode("This is a text node", TextType.BOLD, url=None)
+        self.assertEqual(node, node2)
 
 if __name__ == "__main__":
     unittest.main()
